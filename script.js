@@ -119,11 +119,21 @@ clearCanvas.addEventListener("click", () => {
 });
 
 saveImg.addEventListener("click", () => {
+    canvas.toBlob((blob) => {
+        const link = document.createElement("a");
+        link.download = `${Date.now()}.jpg`;
+        link.href = URL.createObjectURL(blob);
+        link.click();
+        URL.revokeObjectURL(link.href); // Освобождаем память
+    }, 'image/jpeg', 0.9);
+});
+
+/* saveImg.addEventListener("click", () => {
     const link = document.createElement("a"); // creating <a> element
     link.download = `${Date.now()}.jpg`; // passing current date as link download value
     link.href = canvas.toDataURL(); // passing canvasData as link href value
     link.click(); // clicking link to download image
-});
+}); */
 
 canvas.addEventListener("touchstart", (e) => {
   e.preventDefault();
