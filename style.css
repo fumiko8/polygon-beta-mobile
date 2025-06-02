@@ -213,7 +213,32 @@ section{
     font-size: 3rem;
   }
   .container{
-    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .colors .options {
+  display: flex;
+  justify-content: center;}
+
+    .fill-option {
+    margin-top: -15px; /* Поднимаем блок ближе к фигурам */
+    margin-bottom: 10px;
+  }
+  
+  .fill-option .options {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .fill-option .option {
+    justify-content: center;
+    margin-bottom: 0;
+  }
+  
+  .fill-option label {
+    font-size: 12px;
+    padding-left: 5px;
   }
   .option #fill-color{
   cursor: pointer;
@@ -234,7 +259,6 @@ section{
     display: none;
   }
   .tools-board {
-    
     width: 90px;
     padding: 15px 22px 0;
   }
@@ -244,5 +268,9 @@ section{
   .desktop-text{
     display: none;
   }
-
+  .buttons button {
+  font-size: 0.6rem; /* Уменьшаем размер текста */
+  padding:  10px 6px;    /* Уменьшаем отступы внутри кнопок */
+  width: auto;
+  }
 }
