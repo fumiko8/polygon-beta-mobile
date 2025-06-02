@@ -172,6 +172,34 @@ function resizeCanvas() {
   setCanvasBackground();
 }
 
+// Сохраняем данные canvas перед изменением размера
+let canvasData = null;
+
+function saveCanvas() {
+  canvasData = canvas.toDataURL();
+}
+
+function restoreCanvas() {
+  if (canvasData) {
+    const img = new Image();
+    img.onload = function() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(img, 0, 0);
+    };
+    img.src = canvasData;
+  }
+}
+
+// Обработчик изменения размера
+function handleResize() {
+  saveCanvas();
+  resizeCanvas();
+  restoreCanvas();
+}
+
+window.addEventListener('resize', handleResize);
+window.addEventListener('orientationchange', handleResize);
+
 window.addEventListener('resize', resizeCanvas);
 window.addEventListener('orientationchange', resizeCanvas);
 
