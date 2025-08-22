@@ -271,7 +271,8 @@ section{
   }
   .buttons button {
   font-size: 0.6rem; /* Уменьшаем размер текста */
-  padding:  10px 6px;    /* Уменьшаем отступы внутри кнопок */
+  padding:  20px 3px;    /* Уменьшаем отступы внутри кнопок */
   width: auto;
   }
+
 }
